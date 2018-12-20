@@ -34,6 +34,8 @@ void Points::Update(sf::RenderTarget &target, bool FadeColoursOn)
 		if(FadeColoursOn) //!< If true, run the FadeColours method. If false keep it white.
 			FadeColours(); //!< Make the colours change.
 
+
+
 		if (m_bToggle == false) {
 			m_point[i].position.x += m_kGravity.x * dt; //!< Move the points to the right.
 			m_bToggle = true;
@@ -69,6 +71,14 @@ void Points::FadeColours()
 		m_point[i].color.r = rand() % 255; //!< Random number between 1 and 255 for the red.
 		m_point[i].color.g = rand() % 255; //!< Random number between 1 and 255 for the green.
 		m_point[i].color.b = rand() % 255; //!< Random number between 1 and 255 for the blue.
+	}
+}
+
+void Points::DoCircle(sf::Vector2f position, float radius)
+{
+	for (int i = 0; i < m_point.getVertexCount(); i++) {
+		m_fTheta += m_fThetaStep; //!< Add theta to theta step.
+		m_point[i].position = sf::Vector2f(position.x + cos(m_fTheta) * radius, position.y + sin(m_fTheta) * radius); //!< Make the circle.
 	}
 }
 

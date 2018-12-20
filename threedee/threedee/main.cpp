@@ -8,6 +8,7 @@ int main()
 	window.setVerticalSyncEnabled(true);
 	Points point(500);
 
+
 	while (window.isOpen())
 	{
 		sf::Event event;
