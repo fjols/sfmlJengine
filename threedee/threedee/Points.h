@@ -21,6 +21,7 @@ private:
 	float m_fThetaStep = 360 / 60;
 	//float m_fRadius = 200.5f;
 
-
+	
+	float dt = timer.restart().asSeconds(); //!< Deltatime.
 };
 

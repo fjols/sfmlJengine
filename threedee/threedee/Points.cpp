@@ -35,7 +35,6 @@ void Points::Update(sf::RenderTarget &target, bool FadeColoursOn)
 			FadeColours(); //!< Make the colours change.
 
 
-
 		if (m_bToggle == false) {
 			m_point[i].position.x += m_kGravity.x * dt; //!< Move the points to the right.
 			m_bToggle = true;
@@ -44,10 +43,6 @@ void Points::Update(sf::RenderTarget &target, bool FadeColoursOn)
 			m_point[i].position.x += -m_kGravity.x * dt; //!< Move the points to the left.
 			m_bToggle = false;
 		}
-
-
-
-		//timer.restart();
 
 		if (m_point[i].position.y >= target.getSize().y) //!< If the points hit the bottom of the screen.
 		{
@@ -81,4 +76,6 @@ void Points::DoCircle(sf::Vector2f position, float radius)
 		m_point[i].position = sf::Vector2f(position.x + cos(m_fTheta) * radius, position.y + sin(m_fTheta) * radius); //!< Make the circle.
 	}
 }
+
+
 
