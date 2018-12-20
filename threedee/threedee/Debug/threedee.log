@@ -1,0 +1,10 @@
+﻿  Points.cpp
+c:\users\charlie.charlie-san\source\repos\threedee\threedee\points.cpp(9): warning C4018: '<': signed/unsigned mismatch
+c:\users\charlie.charlie-san\source\repos\threedee\threedee\points.cpp(21): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\charlie.charlie-san\source\repos\threedee\threedee\points.cpp(22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\charlie.charlie-san\source\repos\threedee\threedee\points.cpp(23): warning C4018: '<': signed/unsigned mismatch
+c:\users\charlie.charlie-san\source\repos\threedee\threedee\points.cpp(31): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\charlie.charlie-san\source\repos\threedee\threedee\points.cpp(32): warning C4018: '<': signed/unsigned mismatch
+c:\users\charlie.charlie-san\source\repos\threedee\threedee\points.cpp(67): warning C4018: '<': signed/unsigned mismatch
+c:\users\charlie.charlie-san\source\repos\threedee\threedee\points.cpp(26): warning C4715: 'Points::Generate': not all control paths return a value
+  threedee.vcxproj -> C:\Users\Charlie.CHARLIE-SAN\source\repos\threedee\Debug\threedee.exe
