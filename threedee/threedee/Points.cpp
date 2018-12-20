@@ -25,12 +25,14 @@ sf::Vector2f Points::Generate()
 	}
 }
 
-void Points::Update(sf::RenderTarget &target)
+void Points::Update(sf::RenderTarget &target, bool FadeColoursOn)
 {
 	float dt = timer.restart().asSeconds(); //!< Deltatime.
 	for (int i = 0; i < m_point.getVertexCount(); i++) {
 		m_point[i].position.y += m_kGravity.y  * dt; //!< Makes the points move down the screen.
-		FadeColours(); //!< Make the colours change.
+		
+		if(FadeColoursOn) //!< If true, run the FadeColours method. If false keep it white.
+			FadeColours(); //!< Make the colours change.
 
 		if (m_bToggle == false) {
 			m_point[i].position.x += m_kGravity.x * dt; //!< Move the points to the right.

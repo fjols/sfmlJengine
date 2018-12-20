@@ -17,7 +17,7 @@ int main()
 				window.close();
 		}
 
-		point.Update(window);
+		point.Update(window, true);
 
 
 		window.clear();
