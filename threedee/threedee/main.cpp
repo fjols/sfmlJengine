@@ -7,10 +7,15 @@
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(600, 600), "SFML works!");
+
+	float fFrameTime = 1.f / 60.f; // Frame time.
+	sf::Clock clock;
+
+
 	window.setVerticalSyncEnabled(true);
-	Points point(500);
-	//Entity platform(sf::Vector2f(0, 400), sf::Vector2f(600, 50));
-	//Player player(sf::Vector2f(0, 200), sf::Vector2f(50, 50));
+	Points point(100);
+	Entity platform(sf::Vector2f(0, 400), sf::Vector2f(600, 50));
+	Player player(sf::Vector2f(0, 200), sf::Vector2f(50, 50));
 
 	while (window.isOpen())
 	{
@@ -21,13 +26,19 @@ int main()
 				window.close();
 		}
 
-		point.Update(window, true);
-		//player.Update();
-		//player.Collision(platform.GetShape());
+		float m_fElapsedTime = clock.getElapsedTime().asSeconds(); // Get the elapsed time in seconds.
+		if (m_fElapsedTime > fFrameTime)
+		{
+			point.Update(window, true);
+			player.Update();
+			player.Collision(platform.GetShape());
+			clock.restart();
+		}
+
 
 		window.clear();
-		//window.draw(player);
-		//window.draw(platform);
+		window.draw(player);
+		window.draw(platform);
 		window.draw(point);
 		window.display();
 	}
