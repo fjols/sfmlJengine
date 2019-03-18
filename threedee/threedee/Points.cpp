@@ -4,7 +4,7 @@
 
 Points::Points(int amountOfPoints)
 {
-	m_point.setPrimitiveType(sf::Points); // Set the primitive type to be points.
+	m_point.setPrimitiveType(sf::PrimitiveType::LineStrip); // Set the primitive type to be points.
 	m_point.resize(amountOfPoints); // Size of the vertex array
 	for (int i = 0; i < m_point.getVertexCount(); i++) {
 		m_point[i].position = Generate(); // Generate a random position for each point.
@@ -58,6 +58,9 @@ void Points::Update(sf::RenderTarget &target, bool FadeColoursOn)
 
 
 	}
+
+
+
 }
 
 void Points::FadeColours()
@@ -74,6 +77,19 @@ void Points::DoCircle(sf::Vector2f position, float radius)
 	for (int i = 0; i < m_point.getVertexCount(); i++) {
 		m_fTheta += m_fThetaStep; // Add theta to theta step.
 		m_point[i].position = sf::Vector2f(position.x + cos(m_fTheta) * radius, position.y + sin(m_fTheta) * radius); // Make the circle.
+	}
+}
+
+void Points::SineWave(sf::Vector2f pos, float b, float power)
+{
+	for (int i = 0; i < m_point.getVertexCount(); i++)
+	{
+		b += 0.1f;
+		
+		pos.x += abs(cos(pos.x) * pow(b, power));
+		//pos.y += abs(cos(pos.y) * pow(b, power));
+		m_point[i].position = sf::Vector2f(pos.x, abs(cos(pos.x) * pow(b, power)));
+		//FadeColours();
 	}
 }
 

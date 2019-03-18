@@ -13,7 +13,9 @@ int main()
 
 
 	window.setVerticalSyncEnabled(true);
-	Points point(100);
+	Points point(1000);
+	Points pointOne(1000);
+	Points pointTwo(1000);
 	Entity platform(sf::Vector2f(0, 400), sf::Vector2f(600, 50));
 	Player player(sf::Vector2f(0, 200), sf::Vector2f(50, 50));
 
@@ -29,17 +31,22 @@ int main()
 		float m_fElapsedTime = clock.getElapsedTime().asSeconds(); // Get the elapsed time in seconds.
 		if (m_fElapsedTime > fFrameTime)
 		{
-			point.Update(window, true);
-			player.Update();
-			player.Collision(platform.GetShape());
+			//point.Update(window, true);
+			//player.Update();
+			//player.Collision(platform.GetShape());
+			//point.SineWave(sf::Vector2f(0, 100), 2.f, 2.f);
+			//pointOne.SineWave(sf::Vector2f(0, 100), 2.f, 4.f);
+			pointTwo.SineWave(sf::Vector2f(0, 100), 4.f, 2.f);
 			clock.restart();
 		}
 
 
 		window.clear();
-		window.draw(player);
-		window.draw(platform);
-		window.draw(point);
+		//window.draw(player);
+		//window.draw(platform);
+		//window.draw(point);
+		//window.draw(pointOne);
+		window.draw(pointTwo);
 		window.display();
 	}
 
